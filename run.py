@@ -3,9 +3,9 @@ import os
 
 app = create_app()
 
-if __name__ == '__main__':
-    # Ensure instance folder exists
+with app.app_context():
     os.makedirs(app.instance_path, exist_ok=True)
-    with app.app_context():
-        db.create_all()  # Create tables if not exist
+    db.create_all()
+
+if __name__ == '__main__':
     app.run(debug=True)
