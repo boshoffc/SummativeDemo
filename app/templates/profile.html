@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>{{ user.username }}'s Profile</h2>
+<ul class="list-group">
+    <li class="list-group-item"><strong>Email:</strong> {{ user.email }}</li>
+    <li class="list-group-item"><strong>Bio:</strong> {{ user.bio }}</li>
+    <li class="list-group-item"><strong>Age:</strong> {{ user.age }}</li>
+    <li class="list-group-item"><strong>Location:</strong> {{ user.location }}</li>
+</ul>
+<a href="{{ url_for('main.update', user_id=user.id) }}" class="btn btn-warning mt-3">Update Profile</a>
+{% endblock %}
